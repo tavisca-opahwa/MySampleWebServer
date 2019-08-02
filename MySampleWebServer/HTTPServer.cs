@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -26,32 +23,13 @@ namespace MySampleWebServer
             listener.Start();
             while (running)
             {
-                Console.WriteLine("Waiting for connection....");
-                TcpClient client = listener.AcceptTcpClient();
-                Console.WriteLine("Client connected");
-                HandleClient(client);
-                client.Close();
+                HttpListener httpListener = new HttpListener();
+                httpListener.ListenClient(listener);
             }
             running = false;
             listener.Stop();
         }
 
-        private void HandleClient(TcpClient client)
-        {
-
-            StreamReader reader = new StreamReader(client.GetStream());
-            String msg = "";
-            while (reader.Peek() != -1)                 
-            {
-                msg += reader.ReadLine() + "\n";
-            }
-
-            Debug.WriteLine("Request: \n" + msg);
-            Request req = Request.GetRequest(msg);
-            Response resp = Response.From(req);                  
-            resp.Post(client.GetStream())  ;
-        }
-
-
+              
     }
 }

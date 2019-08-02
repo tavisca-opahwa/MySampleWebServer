@@ -4,17 +4,16 @@ namespace MySampleWebServer
 {
     public class Request
     {
-        public Request(RequestProperties requestProperties)
+        private Request(RequestProperties requestProperties)
         {
             Type = requestProperties.Type;
             URL = requestProperties.Url;
             Host = requestProperties.Host;
         }
 
-        public static Request GetRequest(String request)
+        public static Request GetRequest(RequestProperties request)
         {
-            var requestProperties = HTTPParser.ParseRequest(request);
-            return new Request(requestProperties);
+            return new Request(request);
         }
 
         public String Type { get; set; }
