@@ -4,13 +4,18 @@ using System.IO;
 
 namespace MySampleWebServer
 {
+
+    public class FileHandler
+    {
+
+    }
     public class Response
     {
         private Byte[] _data = null;
         private string _status;
         private string _mime;
       
-        private Response(String status, string mime, Byte[] data)
+        public Response(String status, string mime, Byte[] data)
         {
             _data = data;
             _status = status;
@@ -19,8 +24,8 @@ namespace MySampleWebServer
 
         public static Response From(Request request)
         {
-            if (request == null)
-                return MakeNullRequest();
+            if (RequestValidator.IsValidRequest(request) == false)
+                return ErrorResponseHandler.GetErrorResponse(request);
 
             if (request.Type == "GET")
             {
@@ -35,7 +40,7 @@ namespace MySampleWebServer
                 {
                     DirectoryInfo di = new DirectoryInfo(f + "/");
                     if (!di.Exists)
-                        return MakePageNotFound();
+                        return ErrorResponseHandler.GetErrorResponse(request);
                     FileInfo[] files = di.GetFiles();
                     foreach (FileInfo ff in files)
                     {
@@ -47,37 +52,15 @@ namespace MySampleWebServer
                     }
                 }
                 if (!f.Exists)
-                    return MakePageNotFound();
+                    return ErrorResponseHandler.GetErrorResponse(request);
             }
             else
             {
-                return MakeMethodNotAllowed();
+                return ErrorResponseHandler.GetErrorResponse(request);
             }
-            return MakePageNotFound();
+            return ErrorResponseHandler.GetErrorResponse(request);
         }
 
-        private static Response MakeMethodNotAllowed()
-        {
-            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "405.html";
-            FileInfo fi = new FileInfo(file);
-            FileStream fs = fi.OpenRead();
-            BinaryReader reader = new BinaryReader(fs);
-            Byte[] d = new Byte[fs.Length];
-            reader.Read(d, 0, d.Length);
-            return new Response("405 Method Not Allowed", "text/html", d);
-        }
-
-        private static Response MakePageNotFound()
-        {
-
-            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "404.html";
-            FileInfo fi = new FileInfo(file);
-            FileStream fs = fi.OpenRead();
-            BinaryReader reader = new BinaryReader(fs);
-            Byte[] d = new Byte[fs.Length];
-            reader.Read(d, 0, d.Length);
-            return new Response("404 Page Not Found", "text/html", d);
-        }
 
         private static Response MakeFromFile(FileInfo f,string mineType)
         {
@@ -86,21 +69,11 @@ namespace MySampleWebServer
             Byte[] d = new Byte[fs.Length];
             reader.Read(d, 0, d.Length);
             fs.Close();
-            if (MineType.SupportedMine.ContainsKey(mineType) == false)
-                return MakeNullRequest();
+            //if (MineType.SupportedMine.ContainsKey(mineType) == false)
+            //    return ErrorResponseHandler.GetErrorResponse();
             return new Response("200 OK", MineType.SupportedMine[mineType] , d);
         }
 
-        private static Response MakeNullRequest()
-        {
-            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "400.html";
-            FileInfo fi = new FileInfo(file);
-            FileStream fs = fi.OpenRead();
-            BinaryReader reader = new BinaryReader(fs);
-            Byte[] d = new Byte[fs.Length];
-            reader.Read(d, 0, d.Length);
-            return new Response("400 Bad Request", "text/html", d);
-        }
 
         public void Post(Stream stream)
         {
