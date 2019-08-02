@@ -4,9 +4,9 @@
     {
         public static bool IsValidRequest(Request request)
         {
-            if (request == null || request.Type != "Get") 
-                return false;
-             return true;
+            if (request != null && request.Type == "GET") 
+                return true;
+             return false;
         }
     }
 }

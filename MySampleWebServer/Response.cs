@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace MySampleWebServer
 {
-
-    public class FileHandler
-    {
-
-    }
     public class Response
     {
         private Byte[] _data = null;
@@ -27,42 +21,28 @@ namespace MySampleWebServer
             if (RequestValidator.IsValidRequest(request) == false)
                 return ErrorResponseHandler.GetErrorResponse(request);
 
-            if (request.Type == "GET")
-            {
-                String file = Environment.CurrentDirectory + LocationConstants.WEB_DIR + request.URL;
-                FileInfo f = new FileInfo(file);
-                if (f.Exists && f.Extension.Contains("."))
-                {
-                    string extesion = Path.GetExtension(file);
-                    return MakeFromFile(f,extesion);
-                }
-                else
-                {
-                    DirectoryInfo di = new DirectoryInfo(f + "/");
-                    if (!di.Exists)
-                        return ErrorResponseHandler.GetErrorResponse(request);
-                    FileInfo[] files = di.GetFiles();
-                    foreach (FileInfo ff in files)
-                    {
-                        string n = ff.Name;
-                        if (n.Contains("index.html") || n.Contains("index.htm") || n.Contains("default.html") || n.Contains("default.htm"))
-                        {
-                            MakeFromFile(ff,".html");
-                        }
-                    }
-                }
-                if (!f.Exists)
-                    return ErrorResponseHandler.GetErrorResponse(request);
+            String file = Environment.CurrentDirectory + LocationConstants.WEB_DIR + request.URL;
+            FileInfo f = new FileInfo(file);
+            if(FileHandler.IsValidFile(f)==true)
+            { 
+                string extesion = Path.GetExtension(file);
+                return MakeFromFile(f, extesion);
             }
             else
             {
+                DirectoryInfo di = new DirectoryInfo(f + "/");
+                if (!FileHandler.IsValidDirectory(di))
+                    return ErrorResponseHandler.GetErrorResponse(request);
+                FileInfo[] files = di.GetFiles();
+                FileInfo defaultFile = FileHandler.GetDefaultFile(files);
+                if (defaultFile != null)
+                    return MakeFromFile(defaultFile, defaultFile.Extension);
                 return ErrorResponseHandler.GetErrorResponse(request);
             }
-            return ErrorResponseHandler.GetErrorResponse(request);
+           
+
         }
-
-
-        private static Response MakeFromFile(FileInfo f,string mineType)
+        private static Response MakeFromFile(FileInfo f,string extension)
         {
             FileStream fs = f.OpenRead();
             BinaryReader reader = new BinaryReader(fs);
@@ -70,11 +50,9 @@ namespace MySampleWebServer
             reader.Read(d, 0, d.Length);
             fs.Close();
             //if (MineType.SupportedMine.ContainsKey(mineType) == false)
-            //    return ErrorResponseHandler.GetErrorResponse();
-            return new Response("200 OK", MineType.SupportedMine[mineType] , d);
+            //   return ErrorResponseHandler.GetErrorResponse();
+            return new Response("200 OK", MineType.SupportedMine[extension] , d);
         }
-
-
         public void Post(Stream stream)
         {
             StreamWriter writer = new StreamWriter(stream);

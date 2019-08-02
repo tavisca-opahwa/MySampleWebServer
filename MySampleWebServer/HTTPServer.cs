@@ -23,8 +23,8 @@ namespace MySampleWebServer
             listener.Start();
             while (running)
             {
-                HttpListener httpListener = new HttpListener();
-                httpListener.ListenClient(listener);
+                HTTPListener httpListener = new HTTPListener();
+                HTTPListener.ListenClient(listener);
             }
             running = false;
             listener.Stop();

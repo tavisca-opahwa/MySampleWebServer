@@ -10,7 +10,7 @@ namespace MySampleWebServer
         {
             if (request == null)
                 return MakeNullRequest();
-            if (request.Type == "GET")
+            if (request.Type != "GET")
                 return MakeMethodNotAllowed();
             return MakePageNotFound();
         }

@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace MySampleWebServer
 {
-    public class HttpListener
+    public class HTTPListener
     {
         private static string GetMessageFromClient(TcpClient client)
         {
@@ -18,7 +18,7 @@ namespace MySampleWebServer
             Debug.WriteLine("Request: \n" + msg);
             return msg;
         }
-        public void ListenClient(TcpListener listener)
+        public static void ListenClient(TcpListener listener)
         {
             Console.WriteLine("Waiting for connection....");
             TcpClient client = listener.AcceptTcpClient();
@@ -26,7 +26,7 @@ namespace MySampleWebServer
             HandleClient(client);
             client.Close();
         }
-        private void HandleClient(TcpClient client)
+        private static void HandleClient(TcpClient client)
         {
             string msg = GetMessageFromClient(client);
             var requestProperties = HTTPParser.ParseRequest(msg);

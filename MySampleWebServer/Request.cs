@@ -10,12 +10,10 @@ namespace MySampleWebServer
             URL = requestProperties.Url;
             Host = requestProperties.Host;
         }
-
         public static Request GetRequest(RequestProperties request)
         {
             return new Request(request);
         }
-
         public String Type { get; set; }
         public String URL { get; set; }
         public String Host { get; set; }
