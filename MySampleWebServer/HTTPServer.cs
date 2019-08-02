@@ -9,26 +9,17 @@ namespace MySampleWebServer
 {
     class HTTPServer
     {
-        public const string MSG_DIR = "/root/msg/";
-        public const string WEB_DIR = "/root/web/";
-        public const string VERSION = "HTTP/1.1";
-        public const string NAME = "Ojas's Personal HTTP WebServer v0.1";
-
-
         private bool running = false;
         private TcpListener listener;
-
         public HTTPServer(int port)
         {
             listener = new TcpListener(IPAddress.Any, port);
         }
-
         public void Start()
         {
             Thread serverThread = new Thread(new ThreadStart(Run));
             serverThread.Start();
         }
-
         private void Run()
         {
             running = true;

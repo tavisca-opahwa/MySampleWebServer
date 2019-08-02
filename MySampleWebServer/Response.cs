@@ -24,7 +24,7 @@ namespace MySampleWebServer
 
             if (request.Type == "GET")
             {
-                String file = Environment.CurrentDirectory + HTTPServer.WEB_DIR + request.URL;
+                String file = Environment.CurrentDirectory + LocationConstants.WEB_DIR + request.URL;
                 FileInfo f = new FileInfo(file);
                 if (f.Exists && f.Extension.Contains("."))
                 {
@@ -58,7 +58,7 @@ namespace MySampleWebServer
 
         private static Response MakeMethodNotAllowed()
         {
-            String file = Environment.CurrentDirectory + HTTPServer.MSG_DIR + "405.html";
+            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "405.html";
             FileInfo fi = new FileInfo(file);
             FileStream fs = fi.OpenRead();
             BinaryReader reader = new BinaryReader(fs);
@@ -70,7 +70,7 @@ namespace MySampleWebServer
         private static Response MakePageNotFound()
         {
 
-            String file = Environment.CurrentDirectory + HTTPServer.MSG_DIR + "404.html";
+            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "404.html";
             FileInfo fi = new FileInfo(file);
             FileStream fs = fi.OpenRead();
             BinaryReader reader = new BinaryReader(fs);
@@ -93,7 +93,7 @@ namespace MySampleWebServer
 
         private static Response MakeNullRequest()
         {
-            String file = Environment.CurrentDirectory + HTTPServer.MSG_DIR + "400.html";
+            String file = Environment.CurrentDirectory + LocationConstants.MSG_DIR + "400.html";
             FileInfo fi = new FileInfo(file);
             FileStream fs = fi.OpenRead();
             BinaryReader reader = new BinaryReader(fs);
@@ -105,7 +105,7 @@ namespace MySampleWebServer
         public void Post(Stream stream)
         {
             StreamWriter writer = new StreamWriter(stream);
-            writer.WriteLine(string.Format("{0} {1}\r\nServer: {2}\r\nContent-Type: {3}\r\nAccept-Ranges: bytes\r\nContent-Length: {4}\r\n", HTTPServer.VERSION, _status, HTTPServer.NAME, _mime, _data.Length));
+            writer.WriteLine(string.Format("{0} {1}\r\nServer: {2}\r\nContent-Type: {3}\r\nAccept-Ranges: bytes\r\nContent-Length: {4}\r\n", LocationConstants.VERSION, _status, LocationConstants.NAME, _mime, _data.Length));
             writer.Flush();
             stream.Write(_data, 0, _data.Length);
         }
