@@ -9,7 +9,7 @@ namespace MySampleWebServer.Tests
         [Fact]
         public void Check_Wrong_Mine_Type()
         {
-            Assert.False(MineType.SupportedMine.ContainsKey("xyz"));
+            Assert.False(MineType.SupportedMine.ContainsKey(".xyz"));
         }
         [Fact]
         public void Check_Correct_Mine_Type()
