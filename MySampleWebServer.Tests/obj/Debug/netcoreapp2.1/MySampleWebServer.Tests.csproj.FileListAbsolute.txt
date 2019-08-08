@@ -1,0 +1,17 @@
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.csprojAssemblyReference.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.csproj.CoreCompileInputs.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.AssemblyInfoInputs.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.AssemblyInfo.cs
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.Tests.deps.json
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.Tests.runtimeconfig.json
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.Tests.runtimeconfig.dev.json
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.Tests.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.Tests.pdb
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\bin\Debug\netcoreapp2.1\MySampleWebServer.pdb
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.csproj.CopyComplete
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.dll
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer.Tests\obj\Debug\netcoreapp2.1\MySampleWebServer.Tests.pdb

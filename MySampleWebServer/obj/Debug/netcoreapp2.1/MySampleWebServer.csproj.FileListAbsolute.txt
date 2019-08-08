@@ -1,11 +1,11 @@
-C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.csprojAssemblyReference.cache
-C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.csproj.CoreCompileInputs.cache
-C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.AssemblyInfoInputs.cache
-C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.AssemblyInfo.cs
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\bin\Debug\netcoreapp2.1\MySampleWebServer.deps.json
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\bin\Debug\netcoreapp2.1\MySampleWebServer.runtimeconfig.json
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\bin\Debug\netcoreapp2.1\MySampleWebServer.runtimeconfig.dev.json
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\bin\Debug\netcoreapp2.1\MySampleWebServer.dll
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\bin\Debug\netcoreapp2.1\MySampleWebServer.pdb
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.csprojAssemblyReference.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.csproj.CoreCompileInputs.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.AssemblyInfoInputs.cache
+C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.AssemblyInfo.cs
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.dll
 C:\Users\opahwa\Downloads\MySampleWebServer\MySampleWebServer\MySampleWebServer\obj\Debug\netcoreapp2.1\MySampleWebServer.pdb

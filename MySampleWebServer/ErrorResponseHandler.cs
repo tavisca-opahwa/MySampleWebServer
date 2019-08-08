@@ -14,6 +14,10 @@ namespace MySampleWebServer
                 return MakeMethodNotAllowed();
             return MakePageNotFound();
         }
+        internal static Response GetErrorResponse()
+        {
+            return MakePageNotFound();
+        }
 
         private static Response MakeMethodNotAllowed()
         {
@@ -41,6 +45,6 @@ namespace MySampleWebServer
             return d;
         }
 
-
+        
     }
 }

@@ -39,8 +39,6 @@ namespace MySampleWebServer
                     return MakeFromFile(defaultFile, defaultFile.Extension);
                 return ErrorResponseHandler.GetErrorResponse(request);
             }
-           
-
         }
         private static Response MakeFromFile(FileInfo f,string extension)
         {
@@ -49,8 +47,8 @@ namespace MySampleWebServer
             Byte[] d = new Byte[fs.Length];
             reader.Read(d, 0, d.Length);
             fs.Close();
-            //if (MineType.SupportedMine.ContainsKey(mineType) == false)
-            //   return ErrorResponseHandler.GetErrorResponse();
+            if (MineType.SupportedMine.ContainsKey(extension) == false)
+               return ErrorResponseHandler.GetErrorResponse();
             return new Response("200 OK", MineType.SupportedMine[extension] , d);
         }
         public void Post(Stream stream)
