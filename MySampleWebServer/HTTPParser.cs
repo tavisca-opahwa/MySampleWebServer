@@ -21,5 +21,5 @@ namespace MySampleWebServer
                 }
             return new RequestProperties(type, url, host, referer);
         }
-    }
+    }   
 }
