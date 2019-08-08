@@ -10,7 +10,7 @@ namespace MySampleWebServer.Tests
     public class RequestValidatorFixtures
     {
         [Fact]
-        public void To_Check_It_Is_Not_Valid_Request()
+        public void To_check_it_is_not_valid_request_test()
         {
             var requestProperties = new Mock<RequestProperties>("POST", "", "", "");
 
@@ -19,12 +19,12 @@ namespace MySampleWebServer.Tests
             RequestValidator.IsValidRequest(request.Object).Should().Be(false);
         }
         [Fact]
-        public void A_null_request_should_not_be_a_valid_request()
+        public void A_null_request_should_not_be_a_valid_request_test()
         {
             RequestValidator.IsValidRequest(null).Should().Be(false);
         }
         [Fact]
-        public void To_Check_It_Is_Valid_Request()
+        public void To_check_it_is_valid_request_test()
         {
             var requestProperties = new Mock<RequestProperties>("GET", "", "", "");
 

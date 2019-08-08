@@ -5,9 +5,31 @@ using System.Net.Sockets;
 
 namespace MySampleWebServer
 {
+    public interface ITcpClient
+    {
+        NetworkStream GetStream();
+        TcpClient GetClient();
+    }
+    public class TcpClientAdapter : ITcpClient
+    {
+        private TcpClient _wrappedClient;
+        public TcpClientAdapter(TcpClient client)
+        {
+            _wrappedClient = client;
+        }
+        public TcpClient GetClient()
+        {
+            return _wrappedClient;
+        }
+
+        public NetworkStream GetStream()
+        {
+            return _wrappedClient.GetStream();
+        }
+    }
     public class HTTPListener
     {
-        private static string GetMessageFromClient(TcpClient client)
+        public static string GetMessageFromClient(TcpClient client)
         {
             StreamReader reader = new StreamReader(client.GetStream());
             String msg = "";
@@ -28,7 +50,8 @@ namespace MySampleWebServer
         }
         private static void HandleClient(TcpClient client)
         {
-            string msg = GetMessageFromClient(client);
+            ITcpClient tca = new TcpClientAdapter(client);
+            string msg = GetMessageFromClient(tca.GetClient());
             var requestProperties = HTTPParser.ParseRequest(msg);
             Request req = Request.GetRequest(requestProperties);
             Response resp = Response.From(req);

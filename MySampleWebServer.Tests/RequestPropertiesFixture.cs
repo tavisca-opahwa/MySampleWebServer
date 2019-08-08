@@ -4,7 +4,7 @@ using FluentAssertions;
 
 namespace MySampleWebServer.Tests
 {
-    public class RequestPropertiesFixtures
+    public class RequestPropertiesFixture
     {
         private RequestProperties _requestProperties; 
         [Fact]
