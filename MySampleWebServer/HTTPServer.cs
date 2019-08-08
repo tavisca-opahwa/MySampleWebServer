@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace MySampleWebServer
 {
-    class HTTPServer
+    public class HTTPServer
     {
         private bool running = false;
         private TcpListener listener;

@@ -4,7 +4,7 @@ namespace MySampleWebServer
 {
     public class Request
     {
-        private Request(RequestProperties requestProperties)
+        public Request(RequestProperties requestProperties)
         {
             Type = requestProperties.Type;
             URL = requestProperties.Url;
